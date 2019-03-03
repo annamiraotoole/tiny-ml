@@ -1,0 +1,53 @@
+name:                tiny-ml
+version:             0.1.0.0
+github:              "annamiraotoole/tiny-ml"
+license:             BSD3
+author:              "Annamira OToole"
+maintainer:          "annamira@uname.net"
+copyright:           "2018 Annamira OToole"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/annamiraotoole/tiny-ml#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- parsec
+- protolude
+- text
+- containers
+- mtl
+
+library:
+  source-dirs: src
+
+executables:
+  tiny-ml-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tiny-ml
+
+tests:
+  tiny-ml-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tiny-ml

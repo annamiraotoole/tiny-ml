@@ -1,0 +1,79 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3b5ccfa17161797eea7649cc67c9e933e8f68d0350cab4aec567a4f6791aef4d
+
+name:           tiny-ml
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/annamiraotoole/tiny-ml#readme>
+homepage:       https://github.com/annamiraotoole/tiny-ml#readme
+bug-reports:    https://github.com/annamiraotoole/tiny-ml/issues
+author:         Annamira OToole
+maintainer:     annamira@uname.net
+copyright:      2018 Annamira OToole
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/annamiraotoole/tiny-ml
+
+library
+  exposed-modules:
+      Eval
+      Expr
+      Parser
+      TypeCheck
+  other-modules:
+      Paths_tiny_ml
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , mtl
+    , parsec
+    , protolude
+    , text
+  default-language: Haskell2010
+
+executable tiny-ml-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_tiny_ml
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , mtl
+    , parsec
+    , protolude
+    , text
+    , tiny-ml
+  default-language: Haskell2010
+
+test-suite tiny-ml-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_tiny_ml
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , mtl
+    , parsec
+    , protolude
+    , text
+    , tiny-ml
+  default-language: Haskell2010
